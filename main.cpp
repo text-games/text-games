@@ -1,10 +1,15 @@
 #include <iostream>
+#include "ncurses.h"
 
 using namespace std;
 
 int main() 
 {
-cout << "hello\n";
+initscr();
+printw("HI");
+refresh();
+getch();
+endwin();
 return 0; 
 }
 
