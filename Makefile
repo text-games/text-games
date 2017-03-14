@@ -1,2 +1,2 @@
 build: main.cpp
-	$(CXX) $? -lncurses -o bin/main
+	mkdir bin & $(CXX) $? -lncurses -o bin/main
