@@ -6,7 +6,7 @@ using namespace std;
 int main() 
 {
 initscr();
-printw("HI");
+printw("HI PEEPULS");
 refresh();
 getch();
 endwin();
