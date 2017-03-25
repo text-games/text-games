@@ -1,12 +1,9 @@
-#include <iostream>
 #include "ncurses.h"
-
-using namespace std;
 
 int main() 
 {
 initscr();
-printw("HI PEOPLE");
+printw("HI PEOPLE"); //HI CODERS
 refresh();
 getch();
 endwin();
