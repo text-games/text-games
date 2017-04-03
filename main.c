@@ -3,7 +3,7 @@
 int main() 
 {
 initscr();
-printw("HI PEOPLE"); /*HI CODERS*/
+printw("HI PEOPLE"); /*HI CODERS, THIS IS C CODE*/
 refresh();
 getch();
 endwin();
