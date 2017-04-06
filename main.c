@@ -1,4 +1,4 @@
-#include "ncurses.h"
+#include <ncurses.h>
 
 int main() 
 {
