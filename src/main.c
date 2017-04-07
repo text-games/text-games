@@ -3,9 +3,14 @@
 int main() 
 {
 initscr();
-printw("HI PEOPLE"); /*HI CODERS, THIS IS C CODE*/
-refresh();
-getch();
+
+cbreak();
+noecho();
+keypad(stdscr, TRUE);
+
+/*menu entry code will go here*/
+
+
 endwin();
 return 0; 
 }
