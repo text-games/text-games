@@ -23,5 +23,7 @@ $(TARGET): $(OBJECTS)
 clean:
 	-rm -f obj/*.o
 	-rm -f $(TARGET)
-obj/%: src/%
+obj/%: src/% obj/
 	mkdir -p $@
+obj/:
+	mkdir obj
