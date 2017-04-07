@@ -26,4 +26,4 @@ clean:
 obj/%: src/% obj/
 	mkdir -p $@
 obj/:
-	mkdir obj
+	mkdir -p obj
