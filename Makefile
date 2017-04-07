@@ -17,7 +17,7 @@ obj/%.o: src/%.c $(HEADERS) $(DIRECTORIES)
 
 .PRECIOUS: $(TARGET) $(OBJECTS) $(DIRECTORIES)
 
-$(TARGET): $(OBJECTS)
+$(TARGET): $(OBJECTS) bin/
 	$(CC) $(OBJECTS) -Wall $(LIBS) -o $@
 
 clean:
@@ -27,3 +27,5 @@ obj/%: src/% obj/
 	mkdir -p $@
 obj/:
 	mkdir -p obj
+bin/:
+	mkdir -p bin
