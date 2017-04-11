@@ -13,7 +13,7 @@ void startMenu()
 	int maxr, maxc;
 	row = 0;
 	col = 0;
-	init_pair(BLUE_BLOCK, COLOR_BLUE, COLOR_RED);
+	init_pair(BLUE_BLOCK, COLOR_BLUE, COLOR_BLACK);
 	mvaddch(0, 0, ACS_BLOCK | A_BLINK | COLOR_PAIR(BLUE_BLOCK));
 	forever {
 		int ch;
