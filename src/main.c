@@ -3,16 +3,16 @@
 
 int main() 
 {
-initscr();
-curs_set(0);
-cbreak();
-noecho();
-keypad(stdscr, TRUE);
+	initscr();
+	curs_set(0);
+	cbreak();
+	noecho();
+	keypad(stdscr, TRUE);
 
-/*menu entry code will go here*/
-startMenu();
+	/*menu entry code will go here*/
+	startMenu();
 
-endwin();
-return 0; 
+	endwin();
+	return 0; 
 }
 
