@@ -10,9 +10,8 @@ int main()
 	keypad(stdscr, TRUE);
 
 	/*menu entry code will go here*/
-	startMenu();
+	
 
-	endwin();
-	return 0; 
+	return startMenu(); 
 }
 

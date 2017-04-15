@@ -1,20 +1,22 @@
 #include "mainmenu.h"
 #include "../common/nick/nicks-macros.h"
 #include <ncurses.h>
+#include <stdlib.h>
 #define BLUE_BLOCK 1
+#define RED_CHAR 2
+#define MAX_OPTS 2
 typedef enum menuCursorPos {FIRST = 1, SECOND = 2, THIRD = 3, FOURTH = 4, FIFTH = 5} menucursorpos;
 
 menucursorpos mcp_Main = FIRST;
 
-void startMenu()
+int startMenu()
 {
 	start_color();
-	int row, col;
-	int maxr, maxc;
-	row = 0;
-	col = 0;
 	init_pair(BLUE_BLOCK, COLOR_BLUE, COLOR_BLACK);
-	mvaddch(0, 0, ACS_BLOCK | A_BLINK | COLOR_PAIR(BLUE_BLOCK));
+	init_pair(RED_CHAR, COLOR_RED, COLOR_BLACK);
+	mvprintw(0, 1, "Pong");
+	mvprintw(1, 1, "Quit");
+	mvaddch(0, 0, ACS_RARROW | A_BLINK | COLOR_PAIR(RED_CHAR));
 	forever {
 		int ch;
 		ch = getch();
@@ -22,37 +24,23 @@ void startMenu()
 			default:
 				break;
 			case KEY_UP:
-				getmaxyx(stdscr, maxr, maxc);
-				if (row > 0) {
-					mvaddch(row, col, ' ' | A_INVIS);
-					row -= 1;
-					mvaddch(row, col, ACS_BLOCK | A_BLINK | COLOR_PAIR(BLUE_BLOCK));
+				if (mcp_Main > 1) {
+					mvaddch(mcp_Main-1, 0, ' ' | A_INVIS);
+					--mcp_Main;
+					mvaddch(mcp_Main-1, 0, ACS_RARROW | A_BLINK | COLOR_PAIR(RED_CHAR));
 				}
 				break;
 			case KEY_DOWN:
-				getmaxyx(stdscr, maxr, maxc);
-				if (maxr > (row + 1)) {
-					mvaddch(row, col, ' ' | A_INVIS);
-					row += 1;
-					mvaddch(row, col, ACS_BLOCK | A_BLINK | COLOR_PAIR(BLUE_BLOCK));
-				}
-				break;
-			case KEY_LEFT:
-				getmaxyx(stdscr, maxr, maxc);
-				if (col > 0) {
-					mvaddch(row, col, ' ' | A_INVIS);
-					col -= 1;
-					mvaddch(row, col, ACS_BLOCK | A_BLINK | COLOR_PAIR(BLUE_BLOCK));
+				if (mcp_Main < MAX_OPTS) {
+					mvaddch(mcp_Main-1, 0, ' ' | A_INVIS);
+					++mcp_Main;
+					mvaddch(mcp_Main-1, 0, ACS_RARROW | A_BLINK | COLOR_PAIR(RED_CHAR));
 				}
 				break;
 			case KEY_RIGHT:
-				getmaxyx(stdscr, maxr, maxc);
-				if (maxc > (col + 1)) {
-					mvaddch(row, col, ' ' | A_INVIS);
-					col += 1;
-					mvaddch(row, col, ACS_BLOCK | A_BLINK | COLOR_PAIR(BLUE_BLOCK));
-				}
-			break;
+				endwin();
+				return 0;
+				break;
 		}
 	}
 }
