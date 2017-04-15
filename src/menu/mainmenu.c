@@ -2,6 +2,7 @@
 #include "../common/nick/nicks-macros.h"
 #include <ncurses.h>
 #include <stdlib.h>
+#include "../pong/pong.h"
 #define BLUE_BLOCK 1
 #define RED_CHAR 2
 #define MAX_OPTS 2
@@ -42,6 +43,7 @@ int startMenu()
 					default:
 						break;
 					case FIRST:
+						return startPong();
 						break;
 					case SECOND:
 						endwin();
