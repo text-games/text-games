@@ -38,8 +38,17 @@ int startMenu()
 				}
 				break;
 			case KEY_RIGHT:
-				endwin();
-				return 0;
+				switch (mcp_Main) {
+					default:
+						break;
+					case FIRST:
+						break;
+					case SECOND:
+						endwin();
+						return 0;
+						break;
+				}
+				
 				break;
 		}
 	}
