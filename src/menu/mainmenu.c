@@ -50,7 +50,6 @@ int startMenu()
 						return 0;
 						break;
 				}
-				
 				break;
 		}
 	}
