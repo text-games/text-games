@@ -1,5 +1,5 @@
 * Create file with names of games
 * Code games
-* Teach Jack
+* Teach Jack and Windsor
 * Play games!
 
